@@ -1,0 +1,1 @@
+# SMK_practika_Farukova
