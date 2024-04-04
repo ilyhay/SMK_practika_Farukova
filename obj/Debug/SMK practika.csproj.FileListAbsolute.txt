@@ -1,0 +1,95 @@
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika.csproj.AssemblyReference.cache
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\MainWindow.g.cs
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\Autho.g.cs
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\App.g.cs
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika_MarkupCompile.cache
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika_MarkupCompile.lref
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\SMK practika.exe.config
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\SMK practika.exe
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\SMK practika.pdb
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\EntityFramework.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\EntityFramework6.Npgsql.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Npgsql.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Buffers.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Collections.Immutable.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Memory.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Text.Json.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Threading.Channels.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.ValueTuple.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\EntityFramework.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\EntityFramework6.Npgsql.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Npgsql.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Buffers.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Collections.Immutable.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Memory.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Text.Json.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Threading.Channels.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.ValueTuple.xml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\App.baml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\MainWindow.baml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\Autho.baml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika.g.resources
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK_practika.Properties.Resources.resources
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika.csproj.GenerateResource.cache
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika.csproj.CoreCompileInputs.cache
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika.exe
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika.pdb
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\Admin.g.cs
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\Director.g.cs
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\Worker.g.cs
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika_Content.g.cs
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\ClientPage.g.cs
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\Admin.baml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\ClientPage.baml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\Director.baml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\Pages\Worker.baml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK prac.E9AF6834.Up2Date
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.EntityFrameworkCore.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.EntityFrameworkCore.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika.csproj.SuggestedBindingRedirects.cache
+C:\Users\ilyha\source\repos\SMK practika\obj\Debug\SMK practika.exe.config
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\SqlWorker.dll
+C:\Users\ilyha\source\repos\SMK practika\bin\Debug\SqlWorker.xml

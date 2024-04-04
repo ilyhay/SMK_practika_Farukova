@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище practikaModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Claims_Report">
+      <EntityTypeMapping TypeName="practikaModel.Claims_Report">
+        <MappingFragment StoreEntitySet="Claims_Report">
+          <ScalarProperty Name="report_id" ColumnName="report_id" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="practikaModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="patronimyc" ColumnName="patronimyc" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="medical_history" ColumnName="medical_history" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company_Employee">
+      <EntityTypeMapping TypeName="practikaModel.Company_Employee">
+        <MappingFragment StoreEntitySet="Company_Employee">
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="patronimyc" ColumnName="patronimyc" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Insurance_Claim">
+      <EntityTypeMapping TypeName="practikaModel.Insurance_Claim">
+        <MappingFragment StoreEntitySet="Insurance_Claim">
+          <ScalarProperty Name="claim_id" ColumnName="claim_id" />
+          <ScalarProperty Name="claim_date" ColumnName="claim_date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="contract_id" ColumnName="contract_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Insurance_Contract">
+      <EntityTypeMapping TypeName="practikaModel.Insurance_Contract">
+        <MappingFragment StoreEntitySet="Insurance_Contract">
+          <ScalarProperty Name="contract_id" ColumnName="contract_id" />
+          <ScalarProperty Name="insurance_conditions" ColumnName="insurance_conditions" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medical_Institution">
+      <EntityTypeMapping TypeName="practikaModel.Medical_Institution">
+        <MappingFragment StoreEntitySet="Medical_Institution">
+          <ScalarProperty Name="institution_id" ColumnName="institution_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="service_id" ColumnName="service_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medical_Service">
+      <EntityTypeMapping TypeName="practikaModel.Medical_Service">
+        <MappingFragment StoreEntitySet="Medical_Service">
+          <ScalarProperty Name="service_id" ColumnName="service_id" />
+          <ScalarProperty Name="service_name" ColumnName="service_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment">
+      <EntityTypeMapping TypeName="practikaModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="institution_id" ColumnName="institution_id" />
+          <ScalarProperty Name="claim_id" ColumnName="claim_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Status">
+      <EntityTypeMapping TypeName="practikaModel.Payment_Status">
+        <MappingFragment StoreEntitySet="Payment_Status">
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="practikaModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role1" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

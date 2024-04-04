@@ -1,0 +1,21 @@
+﻿<Window x:Class="SMK_practika.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMK_practika"
+        mc:Ignorable="d"
+            Title="Main" Height="610" Width="800" Icon="/icon.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#FFFFB1B1">
+            <Image Width="40" Height="40" HorizontalAlignment="Left" Margin="5" Source="/plus.png" />
+            <Button x:Name="btnBack" HorizontalAlignment="Right" Content="Назад" Click="btnBack_Click" Background="#FFFF4B44"/>
+        </Grid>
+        <Frame x:Name="FrmMain" Grid.Row="1" NavigationUIVisibility="Hidden" ContentRendered="FrmMain_ContentRendered"/>
+    </Grid>
+</Window>

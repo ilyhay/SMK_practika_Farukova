@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SqlWorker</name>
+    </assembly>
+    <members>
+        <member name="T:SqlWorker.ASqlWorker`1">
+            <summary>
+            Core class, where main logic is realised. Dispose to close connection
+            </summary>
+            <typeparam name="TPC">Implementation of IDbParameterCreator interface</typeparam>
+        </member>
+        <member name="P:SqlWorker.ASqlWorker`1.Connection">
+            <summary>
+            Database connection
+            </summary>
+        </member>
+        <member name="P:SqlWorker.ASqlWorker`1.DefaultExecutionTimeout">
+            <summary>
+            Timeout for SqlCommand
+            </summary>
+        </member>
+        <member name="P:SqlWorker.ASqlWorker`1.CloseConnectionOnDispose">
+            <summary>
+            Dispose DbConnection when SqlWorker is disposed
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.TransactionBegin(System.Data.IsolationLevel)">
+            <summary>
+            Only single one transaction is supported!
+            </summary>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.Exec(System.String,SqlWorker.ASqlWorker{`0}.DbParametersConstructor,System.Nullable{System.Int32},System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>
+            Executes specified query
+            </summary>
+            <param name="command">Sql string or stored procedure name</param>
+            <param name="parameters">Query parameters</param>
+            <param name="timeout">Timeout in seconds</param>
+            <param name="commandType">Command type: text / stored procedure / TableDirect</param>
+            <param name="transaction">If transaction was opened, it must be specified</param>
+            <returns>Result code of the query</returns>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.ManualProcessing``1(System.String,System.Func{System.Data.IDataReader,``0},SqlWorker.ASqlWorker{`0}.DbParametersConstructor,System.Nullable{System.Int32},System.Data.CommandType,System.Data.CommandBehavior,System.Data.IDbTransaction)">
+            <summary>
+            Performs ExecuteReader for specified command, performs specified delegate on result, than disposes datareader and command
+            </summary>
+            <typeparam name="T">Result type</typeparam>
+            <param name="command">Sql string or stored procedure name</param>
+            <param name="transformFunction">Delegate for operating whith result datareader</param>
+            <param name="parameters">Query parameters</param>
+            <param name="timeout">Timeout in seconds</param>
+            <param name="commandType">Command type: text / stored procedure / TableDirect</param>
+            <param name="commandBehavior">Hint for exucuting command <see cref="!:https://docs.microsoft.com/dotnet/api/system.data.commandbehavior" /></param>
+            <param name="transaction">If transaction was opened, it must be specified</param>
+            <returns>T-object, result of delegate execution</returns>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.Query``1(System.String,System.Func{System.Data.IDataReader,``0},SqlWorker.ASqlWorker{`0}.DbParametersConstructor,System.Nullable{System.Int32},System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>
+            Return IEnumerable with results
+            </summary>
+            <typeparam name="T">Generic resulting type</typeparam>
+            <param name="command">SQL command; in case of stored procedure this parameter stores only Proc name, commandType must be specified then</param>
+            <param name="transformFunction">Delegate to recive T from DataReader</param>
+            <param name="parameters">Values of parameters (if necessary)</param>
+            <param name="timeout">Timeout</param>
+            <param name="commandType">Type of batch</param>
+            <param name="transaction">The transaction, inside of wich the command will be executed</param>
+            <returns>Consequentially readed data</returns>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.GetDataTable(System.String,SqlWorker.ASqlWorker{`0}.DbParametersConstructor,System.Nullable{System.Int32},System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>
+            Executes query and returns DataTable with results
+            </summary>
+            <param name="query">Sql string or stored procedure name</param>
+            <param name="parameters">Query parameters</param>
+            <param name="timeout">Timeout in seconds</param>
+            <param name="commandType">Command type: text / stored procedure / TableDirect</param>
+            <param name="transaction">If transaction was opened, it must be specified</param>
+            <returns>The DataTable with results</returns>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.Dispose">
+            <summary>
+            Closes database connection
+            </summary>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.SqlParameterNullWorkaround(System.Data.IDataParameter[])">
+            <summary>
+            Replaces null-values to DBNull.Value constant
+            </summary>
+            <param name="param">Parameters, that will be sent to sql command</param>
+        </member>
+        <member name="T:SqlWorker.ASqlWorker`1.DbParametersConstructor">
+            <summary>
+            Provides some implicit conversions to DbParameter[]
+            </summary>
+        </member>
+        <member name="P:SqlWorker.ASqlWorker`1.DbParametersConstructor.EmptyParams">
+            <summary>
+            Constant that represents empty parameters array
+            </summary>
+        </member>
+        <member name="P:SqlWorker.ASqlWorker`1.DbParametersConstructor.Parameters">
+            <summary>
+            Returns array of DpParameter that are represented by current object
+            </summary>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.DbParametersConstructor.#ctor(System.Data.IDataParameter[])">
+            <summary>
+            Initialises new parameters set
+            </summary>
+            <param name="parameters">The array of parameters</param>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.DbParametersConstructor.Count">
+            <summary>
+            Returns the number of parameters
+            </summary>
+            <returns>The number of parameters</returns>
+        </member>
+        <member name="P:SqlWorker.ASqlWorker`1.DbParametersConstructor.Item(System.Int32)">
+            <summary>
+            Returns specified element of parameters's set
+            </summary>
+            <param name="i">The index of requested parameter</param>
+            <returns>The requested parameter</returns>
+        </member>
+        <member name="P:SqlWorker.ASqlWorker`1.DbParametersConstructor.Item(System.String)">
+            <summary>
+            Returns specified element of parameters's set
+            </summary>
+            <param name="name">The name of requested parameter</param>
+            <returns>The requested parameter</returns>
+            <exception cref="T:System.InvalidOperationException">No parameters has specified <paramref name="name" />.-or-More than one parameter has specified <paramref name="name" />.-or-The source sequence is empty.</exception>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.DbParametersConstructor.op_Implicit(SqlWorker.ASqlWorker{`0}.DbParametersConstructor)~System.Data.IDataParameter[]">
+            <summary>
+            Implicitly converts current object to DbParameter[]
+            </summary>
+            <param name="dbParametersConstructorObject">The current object</param>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.DbParametersConstructor.op_Implicit(System.Data.IDataParameter[])~SqlWorker.ASqlWorker{`0}.DbParametersConstructor">
+            <summary>
+            Implicitly converts from DbParameter[] to DbParametersConstructor
+            </summary>
+            <param name="vals">The source elements</param>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.DbParametersConstructor.op_Implicit(System.Data.Common.DbParameter)~SqlWorker.ASqlWorker{`0}.DbParametersConstructor">
+            <summary>
+            Implicitly converts from a single DbParameter to DbParametersConstructor
+            </summary>
+            <param name="parameter">The single parameter for query</param>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.DbParametersConstructor.op_Implicit(System.Collections.Generic.Dictionary{System.String,System.Object})~SqlWorker.ASqlWorker{`0}.DbParametersConstructor">
+            <summary>
+            Implicitly converts from Dictionary with param names and values to DbParametersConstructor
+            </summary>
+            <param name="vals">The source elements</param>
+        </member>
+        <member name="M:SqlWorker.ASqlWorker`1.DbParametersConstructor.op_Implicit(SqlWorker.SwParameters)~SqlWorker.ASqlWorker{`0}.DbParametersConstructor">
+            <summary>
+            Implicitly converts from SwParameters to DbParametersConstructor
+            </summary>
+            <param name="vals">The source elements</param>
+        </member>
+        <member name="F:SqlWorker.ASqlWorker`1.TypeMap">
+            <summary>
+            Dictionary that maps c# types to DbTypes
+            </summary>
+        </member>
+        <member name="T:SqlWorker.Helpers">
+            <summary>
+            Helpers for batching Enumerable and null workarounds
+            </summary>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetFlatPropertyInfos``1(System.Type,System.String,System.Func{``0,System.Object},System.Action{``0})">
+            <summary>
+            Create flat list of properties from nested object; recursive
+            </summary>
+            <remarks>Nested type must have parameterless constructor</remarks>
+            <param name="type">The type</param>
+            <param name="prefix">Property name prefix</param>
+            <param name="getter">Func for getting child value of specified type from root TelemetryData value</param>
+            <param name="initializer">Action for creating child value of specified type in root TelemetryData value</param>
+            <returns>IEnumerable of KeyValuePair where Key - full name of a property and Value - tuple of instruments for working with the property, getting and setting values</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableBool(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains bool? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `bool?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableByte(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains byte? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `byte?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableInt16(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains short? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `short?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableInt32(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains int? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `int?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableInt64(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains long? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `long?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableFloat(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains float? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `float?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableDouble(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains double? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `double?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableDecimal(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains decimal? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `decimal?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableGuid(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains Guid? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `Guid?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableDateTime(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains DateTime? variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `DateTime?` type</returns>
+        </member>
+        <member name="M:SqlWorker.Helpers.GetNullableString(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Obtains string variable from NULL-able column
+            </summary>
+            <param name="dr">The DataReader with results</param>
+            <param name="ordinal">The index of the column</param>
+            <returns>The result of `string` type</returns>
+        </member>
+        <member name="T:SqlWorker.IBulkCopySettings">
+            <summary>
+            Bulk copy settings may vary for different implementations
+            </summary>
+        </member>
+        <member name="T:SqlWorker.IBulkCopy`1">
+            <summary>
+            Implementers can perform bulk copy with a DataTable
+            </summary>
+            <typeparam name="T">Represents specific bulk copy settings</typeparam>
+        </member>
+        <member name="M:SqlWorker.IBulkCopy`1.BulkCopy(System.Data.DataTable,System.String,`0)">
+            <summary>
+            Performs bulk copy from DataTable to specified table
+            </summary>
+            <param name="source">Source data</param>
+            <param name="targetTableName">Target table</param>
+            <param name="bulkCopySettings">Settings for this implementation of bulk copy</param>
+        </member>
+        <member name="T:SqlWorker.IBulkCopyWithReflection`1">
+            <summary>
+            Implementers can perform bulk copy with generic enumeration
+            </summary>
+            <typeparam name="T">Represents specific bulk copy settings</typeparam>
+        </member>
+        <member name="M:SqlWorker.IBulkCopyWithReflection`1.BulkCopy``1(System.Collections.Generic.IEnumerable{``0},System.String,`0)">
+            <summary>
+            Performs bulk copy from objects collection to target table in database; columns are detected by reflection
+            </summary>
+            <typeparam name="TItem">The generic type of collection</typeparam>
+            <param name="source">The source collection</param>
+            <param name="targetTableName">Name of the table, where data will be copied</param>
+            <param name="bulkCopySettings">Settings for this implementation of bulk copy</param>
+        </member>
+        <member name="T:SqlWorker.IDbParameterCreator">
+            <summary>
+            Interface for creation IDataParameter
+            </summary>
+        </member>
+        <member name="M:SqlWorker.IDbParameterCreator.Create(System.String,System.Object,System.Nullable{System.Data.DbType},System.Nullable{System.Data.ParameterDirection},System.Nullable{System.Int32})">
+            <summary>
+            Abstract method for creating DbParameter
+            </summary>
+            <param name="name">Parameter name</param>
+            <param name="value">Parameter value</param>
+            <param name="type">Parameter DBType, optional</param>
+            <param name="direction">Parameter direction (Input / Output / InputOutput / ReturnValue), optional</param>
+            <param name="size">Parameter size (for types with variable size)</param>
+            <returns></returns>
+        </member>
+        <member name="T:SqlWorker.ADbParameterCreator`1">
+            <summary>
+            Generic method for creating DbParameter
+            </summary>
+            <typeparam name="T">Parameter type for target DBMS</typeparam>
+        </member>
+        <member name="M:SqlWorker.ADbParameterCreator`1.Create(System.String,System.Object,System.Nullable{System.Data.DbType},System.Nullable{System.Data.ParameterDirection},System.Nullable{System.Int32})">
+            <summary>
+            Method for creating parameters of type T
+            </summary>
+            <param name="name">Parameter name</param>
+            <param name="value">Parameter value</param>
+            <param name="type">Parameter DBType, optional</param>
+            <param name="direction">Parameter direction (Input / Output / InputOutput / ReturnValue), optional</param>
+            <param name="size">Parameter size (for types with variable size)</param>
+            <returns>created IDataParameter object</returns>
+        </member>
+        <member name="M:SqlWorker.ADbParameterCreator`1.SetSize(`0,System.Int32)">
+            <summary>
+            Set parameter size (for types with variable size)
+            </summary>
+            <param name="parameter">The parameter</param>
+            <param name="size">Parameter size</param>
+        </member>
+        <member name="T:SqlWorker.SwParameters">
+            <summary>
+            Class that helps declarate parameters
+            </summary>
+        </member>
+        <member name="M:SqlWorker.SwParameters.Add(System.String,System.Object,System.Nullable{System.Data.DbType},System.Nullable{System.Data.ParameterDirection},System.Nullable{System.Int32})">
+            <summary>
+            method for declaring another one parameter
+            </summary>
+            <param name="name">Parameter name</param>
+            <param name="value">Parameter value</param>
+            <param name="type">Parameter DBType, optional</param>
+            <param name="direction">Parameter direction (Input / Output / InputOutput / ReturnValue), optional</param>
+            <param name="size">Parameter size (for types with variable size)</param>
+        </member>
+    </members>
+</doc>

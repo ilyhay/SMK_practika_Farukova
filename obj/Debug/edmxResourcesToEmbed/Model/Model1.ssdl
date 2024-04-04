@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище practikaModel" Provider="Npgsql" ProviderManifestToken="16.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Claims_Report">
+    <Key>
+      <PropertyRef Name="report_id" />
+    </Key>
+    <Property Name="report_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="employee_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="payment_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="surname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="patronimyc" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="11" />
+    <Property Name="medical_history" Type="text" />
+    <Property Name="login" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Company_Employee">
+    <Key>
+      <PropertyRef Name="employee_id" />
+    </Key>
+    <Property Name="employee_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="surname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="patronimyc" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="role_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="phone" Type="numeric" Precision="11" Scale="0" />
+    <Property Name="login" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6005: Тип данных "money" в настоящее время не поддерживается для целевой версии платформы Entity Framework; столбец "expenses" в таблице "practika.public.Insurance_Claim" был исключен.-->
+  <EntityType Name="Insurance_Claim">
+    <Key>
+      <PropertyRef Name="claim_id" />
+    </Key>
+    <Property Name="claim_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="claim_date" Type="date" />
+    <Property Name="description" Type="text" />
+    <Property Name="contract_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6005: Тип данных "money" в настоящее время не поддерживается для целевой версии платформы Entity Framework; столбец "price" в таблице "practika.public.Insurance_Contract" был исключен.-->
+  <EntityType Name="Insurance_Contract">
+    <Key>
+      <PropertyRef Name="contract_id" />
+    </Key>
+    <Property Name="contract_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="insurance_conditions" Type="text" />
+    <Property Name="client_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medical_Institution">
+    <Key>
+      <PropertyRef Name="institution_id" />
+    </Key>
+    <Property Name="institution_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="text" />
+    <Property Name="phone" Type="numeric" Precision="11" Scale="0" />
+    <Property Name="service_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6005: Тип данных "money" в настоящее время не поддерживается для целевой версии платформы Entity Framework; столбец "price" в таблице "practika.public.Medical_Service" был исключен.-->
+  <EntityType Name="Medical_Service">
+    <Key>
+      <PropertyRef Name="service_id" />
+    </Key>
+    <Property Name="service_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="service_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6005: Тип данных "money" в настоящее время не поддерживается для целевой версии платформы Entity Framework; столбец "cost" в таблице "practika.public.Payment" был исключен.-->
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="payment_id" />
+    </Key>
+    <Property Name="payment_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="payment_date" Type="date" />
+    <Property Name="status_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="institution_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="claim_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment_Status">
+    <Key>
+      <PropertyRef Name="status_id" />
+    </Key>
+    <Property Name="status_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="Claims_Report_employee_id_fkey">
+    <End Role="Company_Employee" Type="Self.Company_Employee" Multiplicity="1" />
+    <End Role="Claims_Report" Type="Self.Claims_Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company_Employee">
+        <PropertyRef Name="employee_id" />
+      </Principal>
+      <Dependent Role="Claims_Report">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Claims_Report_payment_id_fkey">
+    <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
+    <End Role="Claims_Report" Type="Self.Claims_Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="payment_id" />
+      </Principal>
+      <Dependent Role="Claims_Report">
+        <PropertyRef Name="payment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Company_Employee_role_id_fkey">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Company_Employee" Type="Self.Company_Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="Company_Employee">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Insurance_Claim_contract_id_fkey">
+    <End Role="Insurance_Contract" Type="Self.Insurance_Contract" Multiplicity="1" />
+    <End Role="Insurance_Claim" Type="Self.Insurance_Claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insurance_Contract">
+        <PropertyRef Name="contract_id" />
+      </Principal>
+      <Dependent Role="Insurance_Claim">
+        <PropertyRef Name="contract_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Insurance_Contract_client_id_fkey">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Insurance_Contract" Type="Self.Insurance_Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="client_id" />
+      </Principal>
+      <Dependent Role="Insurance_Contract">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Medical_Institution_service_id_fkey">
+    <End Role="Medical_Service" Type="Self.Medical_Service" Multiplicity="1" />
+    <End Role="Medical_Institution" Type="Self.Medical_Institution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medical_Service">
+        <PropertyRef Name="service_id" />
+      </Principal>
+      <Dependent Role="Medical_Institution">
+        <PropertyRef Name="service_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Payment_claim_id_fkey">
+    <End Role="Insurance_Claim" Type="Self.Insurance_Claim" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insurance_Claim">
+        <PropertyRef Name="claim_id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="claim_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Payment_institution_id_fkey">
+    <End Role="Medical_Institution" Type="Self.Medical_Institution" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medical_Institution">
+        <PropertyRef Name="institution_id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="institution_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Payment_status_id_fkey">
+    <End Role="Payment_Status" Type="Self.Payment_Status" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_Status">
+        <PropertyRef Name="status_id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище practikaModelContainer">
+    <EntitySet Name="Claims_Report" EntityType="Self.Claims_Report" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Company_Employee" EntityType="Self.Company_Employee" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Insurance_Claim" EntityType="Self.Insurance_Claim" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Insurance_Contract" EntityType="Self.Insurance_Contract" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Medical_Institution" EntityType="Self.Medical_Institution" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Medical_Service" EntityType="Self.Medical_Service" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Payment_Status" EntityType="Self.Payment_Status" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="public" store:Type="Tables" />
+    <AssociationSet Name="Claims_Report_employee_id_fkey" Association="Self.Claims_Report_employee_id_fkey">
+      <End Role="Company_Employee" EntitySet="Company_Employee" />
+      <End Role="Claims_Report" EntitySet="Claims_Report" />
+    </AssociationSet>
+    <AssociationSet Name="Claims_Report_payment_id_fkey" Association="Self.Claims_Report_payment_id_fkey">
+      <End Role="Payment" EntitySet="Payment" />
+      <End Role="Claims_Report" EntitySet="Claims_Report" />
+    </AssociationSet>
+    <AssociationSet Name="Company_Employee_role_id_fkey" Association="Self.Company_Employee_role_id_fkey">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Company_Employee" EntitySet="Company_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="Insurance_Claim_contract_id_fkey" Association="Self.Insurance_Claim_contract_id_fkey">
+      <End Role="Insurance_Contract" EntitySet="Insurance_Contract" />
+      <End Role="Insurance_Claim" EntitySet="Insurance_Claim" />
+    </AssociationSet>
+    <AssociationSet Name="Insurance_Contract_client_id_fkey" Association="Self.Insurance_Contract_client_id_fkey">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Insurance_Contract" EntitySet="Insurance_Contract" />
+    </AssociationSet>
+    <AssociationSet Name="Medical_Institution_service_id_fkey" Association="Self.Medical_Institution_service_id_fkey">
+      <End Role="Medical_Service" EntitySet="Medical_Service" />
+      <End Role="Medical_Institution" EntitySet="Medical_Institution" />
+    </AssociationSet>
+    <AssociationSet Name="Payment_claim_id_fkey" Association="Self.Payment_claim_id_fkey">
+      <End Role="Insurance_Claim" EntitySet="Insurance_Claim" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="Payment_institution_id_fkey" Association="Self.Payment_institution_id_fkey">
+      <End Role="Medical_Institution" EntitySet="Medical_Institution" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="Payment_status_id_fkey" Association="Self.Payment_status_id_fkey">
+      <End Role="Payment_Status" EntitySet="Payment_Status" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
